@@ -1,18 +1,109 @@
+
 <html>
-	<head>
-		<script src="js/mail-generator.js"></script>
-		<link href="css/style.css" rel="stylesheet" media="screen">
+  <head>
+    <script src="js/mail-generator.js"></script>
+    <link href="css/style.css" rel="stylesheet" media="screen">
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
+
+
+    <title>Gee-Mail Challenge</title>
     <script>
+
       window.onload = function(){
-        // ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE. 
-        // We have to use window.onload so your JavaScript doesn't execute until the page has loaded and all HTML has been downloaded to your browser
-        
-      };
+        for(var i = 0; i <window.geemails.length; i++){
+          var dateBox = document.createElement("div");
+          dateBox.className = "date"
+          dateBox.innerHTML = window.geemails[i].date;
+          main.appendChild(dateBox);
+          var subjectBox = document.createElement("div");
+          subjectBox.className = "subject";
+          subjectBox.innerHTML = window.geemails[i].subject;
+          dateBox.appendChild(subjectBox);
+
+          var senderBox = document.createElement("div");
+          senderBox.className = "sender";
+          senderBox.innerHTML = window.geemails[i].sender;
+          subjectBox.appendChild(senderBox);
+
+          var bodyBox = document.createElement("div");
+          bodyBox.className = "body";
+          bodyBox.innerHTML = window.geemails[i].body;
+          bodyBox.style.display = "none";
+          senderBox.appendChild(bodyBox);
+  
+    
+     var msgContent = document.getElementsByClassName("subject");
+     //console.log(msgContent);
+     for(var i =0; i<msgContent.length; i++){
+      //console.log(msgContent[i]);
+
+      msgContent[i].addEventListener("click", showBody);
+}
+      
+      function showBody(){
+        var displayBody = this.querySelectorAll(".body")[0]
+        if(displayBody.style.display === "none"){
+        displayBody.style.display = "block";
+        }else{
+          displayBody.style.display = "none";
+        }
+      }
+      
+      function addRandomMail(){
+       var inboxData=getNewMessage();
+       console.log(inboxData);
+      
+      var date = document.createElement("div");
+      date.className = "date";
+      date.innerHTML = inboxData.date;
+      main.appendChild(date);
+      var subject = document.createElement("div");
+      subject.className = "subject";
+      subject.innerHTML = inboxData.subject;
+      main.appendChild(subject);
+      var sender = document.createElement("div");
+      sender.className = "sender";
+      sender.innerHTML = inboxData.sender;
+      main.appendChild(sender);
+      var body = document.createElement("div");
+      body.className = "body";
+      body.innerHTML = inboxData.sender;
+     main.appendChild(body); 
+    
+    
+    var msgContent = document.getElementsByClassName("subject")
+    for(var i = 0; i<msgContent.length; i++){
+      msgContent[i].addEventListener("click", showBody);
+    }
+    function showBody(){
+      var displayBody = this.querySelectorAll(".body")[0]
+      if(displayBody.style.display === "none"){
+        displayBody.style.display = "block"
+      }else{
+        displayBody.style.display = "none";
+      }
+    }
+  }setInterval(addRandomMail, 3000);
+
+    }
+    };
+    
+   
     </script>
-	</head>
-	<body>
-		<div class="container" id="main">
-			Build Me!
-		</div>
-	</body>
+    
+  </head>
+  <body>
+    <div class="container" id="main">
+      Gee-Mail DevLeague Challenge
+    </div>
+    <nav class="topBox">
+      <a href="inbox">NEW EMAIL</a>
+      <a href="inbox">INBOX(<span id ="inboxCounter">0</span>)</a>
+      <a href="inbox">SENT MAIL</a>
+      <a href="inbox">DRAFTS</a>
+      <a href="inbox">TRASH</a>
+    </nav>
+
+    
+  </body>
 </html>
