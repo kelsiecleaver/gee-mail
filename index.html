@@ -10,6 +10,11 @@
     <script>
 
       window.onload = function(){
+
+  var sum = document.getElementById("inboxCounter");
+      sum.innerHTML =  geemails.length;
+
+
      for(var i = 0; i <window.geemails.length; i++){
           var dateBox = document.createElement("div");
           dateBox.className = "date"
@@ -49,74 +54,44 @@
         }
       }
       }
+
       
-    
+    //console.log(getNewMessage())
 
-        /*for(var i = 0; i <window.geemails.length; i++){
-          var dateBox = document.createElement("div");
-          dateBox.className = "date"
-          dateBox.innerHTML = window.geemails[i].date;
-          main.appendChild(dateBox);
-          var subjectBox = document.createElement("div");
-          subjectBox.className = "subject";
-          subjectBox.innerHTML = window.geemails[i].subject;
-          dateBox.appendChild(subjectBox);
 
-          var senderBox = document.createElement("div");
-          senderBox.className = "sender";
-          senderBox.innerHTML = window.geemails[i].sender;
-          subjectBox.appendChild(senderBox);
-
-          var bodyBox = document.createElement("div");
-          bodyBox.className = "body";
-          bodyBox.innerHTML = window.geemails[i].body;
-          bodyBox.style.display = "none";
-          senderBox.appendChild(bodyBox);
-  
-    
-     var msgContent = document.getElementsByClassName("subject");
-     //console.log(msgContent);
-     for(var i =0; i<msgContent.length; i++){
-      //console.log(msgContent[i]);
-
-      msgContent[i].addEventListener("click", showBody);
-}
-      
-      function showBody(){
-        var displayBody = this.querySelectorAll(".body")[0]
-        if(displayBody.style.display === "none"){
-        displayBody.style.display = "block";
-        }else{
-          displayBody.style.display = "none";
-        }
-      }
-      }
       function addRandomMail(){
        var inboxData=getNewMessage();
        console.log(inboxData);
-      
-      var date = document.createElement("div");
-      date.className = "date";
-      date.innerHTML = inboxData.date;
-      main.appendChild(date);
-      var subject = document.createElement("div");
-      subject.className = "subject";
-      subject.innerHTML = inboxData.subject;
-      main.appendChild(subject);
-      var sender = document.createElement("div");
-      sender.className = "sender";
-      sender.innerHTML = inboxData.sender;
-      main.appendChild(sender);
-      var body = document.createElement("div");
-      body.className = "body";
-      body.innerHTML = inboxData.sender;
-     main.appendChild(body); 
-    
-    
-    var msgContent = document.getElementsByClassName("subject")
+
+       var sum = document.getElementById("inboxCounter");
+      sum.innerHTML =  geemails.length++;
+
+       var dateBox = document.createElement("div");
+      dateBox.className = "date";
+      dateBox.innerHTML = inboxData.date;
+      main.appendChild(dateBox);
+
+      var subjectBox = document.createElement("div");
+      subjectBox.className = "subject";
+      subjectBox.innerHTML = inboxData.subject;
+      dateBox.appendChild(subjectBox);
+
+      var senderBox = document.createElement("div");
+      senderBox.className = "sender";
+      senderBox.innerHTML = inboxData.sender;
+      subjectBox.appendChild(senderBox);
+
+      var bodyBox = document.createElement("div");
+      bodyBox.className = "body";
+      bodyBox.innerHTML = inboxData.body;
+      bodyBox.style.display = "none";
+      senderBox.appendChild(bodyBox);
+
+      var msgContent = document.getElementsByClassName("subject")
     for(var i = 0; i<msgContent.length; i++){
       msgContent[i].addEventListener("click", showBody);
     }
+
     function showBody(){
       var displayBody = this.querySelectorAll(".body")[0]
       if(displayBody.style.display === "none"){
@@ -125,25 +100,32 @@
         displayBody.style.display = "none";
       }
     }
-  }setInterval(addRandomMail, 3000);
-    */
+
   
+  }
+ 
+
+  setInterval(addRandomMail, 3000);
+
+    
+
     
    
     </script>
     
   </head>
   <body>
-    <div class="container" id="main">
-      Gee-Mail DevLeague Challenge
-    </div>
-    <nav class="topBox">
+   <nav class="topBox">
       <a href="inbox">NEW EMAIL</a>
       <a href="inbox">INBOX(<span id ="inboxCounter">0</span>)</a>
       <a href="inbox">SENT MAIL</a>
       <a href="inbox">DRAFTS</a>
       <a href="inbox">TRASH</a>
     </nav>
+    <div class="container" id="main">
+      Gee-Mail DevLeague Challenge
+    </div>
+   
 
     
   </body>
