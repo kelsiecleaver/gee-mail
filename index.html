@@ -10,7 +10,49 @@
     <script>
 
       window.onload = function(){
-        for(var i = 0; i <window.geemails.length; i++){
+     for(var i = 0; i <window.geemails.length; i++){
+          var dateBox = document.createElement("div");
+          dateBox.className = "date"
+          dateBox.innerHTML = window.geemails[i].date;
+          main.appendChild(dateBox);
+
+          var subjectBox = document.createElement("div");
+          subjectBox.className = "subject";
+          subjectBox.innerHTML = window.geemails[i].subject;
+          dateBox.appendChild(subjectBox);
+
+          var senderBox = document.createElement("div");
+          senderBox.className = "sender";
+          senderBox.innerHTML = window.geemails[i].sender;
+          subjectBox.appendChild(senderBox);
+
+          var bodyBox = document.createElement("div");
+          bodyBox.className = "body";
+          bodyBox.innerHTML = window.geemails[i].body;
+          bodyBox.style.display = "none";
+          senderBox.appendChild(bodyBox);
+}
+          var msgContent = document.getElementsByClassName("subject");
+     //console.log(msgContent);
+     for(var i =0; i<msgContent.length; i++){
+      //console.log(msgContent[i]);
+
+      msgContent[i].addEventListener("click", showBody);
+        }
+
+        function showBody(){
+        var displayBody = this.querySelectorAll(".body")[0]
+        if(displayBody.style.display === "none"){
+        displayBody.style.display = "block";
+        }else{
+          displayBody.style.display = "none";
+        }
+      }
+      }
+      
+    
+
+        /*for(var i = 0; i <window.geemails.length; i++){
           var dateBox = document.createElement("div");
           dateBox.className = "date"
           dateBox.innerHTML = window.geemails[i].date;
@@ -48,7 +90,7 @@
           displayBody.style.display = "none";
         }
       }
-      
+      }
       function addRandomMail(){
        var inboxData=getNewMessage();
        console.log(inboxData);
@@ -84,9 +126,8 @@
       }
     }
   }setInterval(addRandomMail, 3000);
-
-    }
-    };
+    */
+  
     
    
     </script>
