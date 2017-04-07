@@ -1,0 +1,64 @@
+
+header{
+  font-size: 120px;
+  text-align: center;
+}
+body{
+  background-image: url("https://images.designtrends.com/wp-content/uploads/2015/11/13153219/Scratched-Old-Metal-Background.jpg");
+  background-repeat:
+ 
+    background-size: cover; 
+    font-weight: bold;
+    font-family:'Dancing Script', cursive;
+    color: white;
+    font-size: 30px;
+}
+.box{
+  
+  font-size: 60px;
+  border: 15px solid black;
+}
+.prettyDate{
+  width: 30%;
+  display: inline-block;
+}
+.prettySender{
+  width: 30%;
+  display: inline-block;
+}
+.prettySubject{
+  width: 30%;
+  display: inline-block;
+}
+.date{
+  padding: 40px;
+  color: #FFE4E1;
+  font-family: 'Open Sans', sans-serif; 
+ 
+  display: inline-block;
+  }
+.sender{
+ display: inline-block;
+ padding: 40px
+ font-family: "Open Sans";
+   
+}
+.subject{
+display: inline-block;
+font-family: "Open Sans";
+ 
+}
+.topBox{
+position: static;
+text-align: center;
+font-size: 37px;
+font-family:'Dancing Script', cursive;
+background-color: #FFE4E1;
+}
+a{
+  color: black;
+}
+p{
+  text-align: right;
+  font-size: 12px;
+}
